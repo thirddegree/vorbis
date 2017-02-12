@@ -65,6 +65,8 @@ endif()
 include(FindPackageHandleStandardArgs)
 find_package_handle_standard_args(OGG DEFAULT_MSG OGG_INCLUDE_DIRS OGG_LIBRARIES)
 
+add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/dependencies/ogg")
+set(OGG_INCLUDE_DIRS "${CMAKE_CURRENT_SOURCE_DIR}/dependencies/ogg/include")
 add_subdirectory(lib)
 
 configure_pkg_config_file(vorbis.pc.in)

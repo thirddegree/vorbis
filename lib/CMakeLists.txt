@@ -79,9 +79,9 @@ if (NOT BUILD_FRAMEWORK)
     get_version_info(VORBISFILE_VERSION_INFO "VF_LIB_CURRENT" "VF_LIB_AGE" "VF_LIB_REVISION")
     set_target_properties(vorbisfile PROPERTIES SOVERSION ${VORBISFILE_VERSION_INFO})
 
-    target_link_libraries(vorbis ${OGG_LIBRARIES})
-    target_link_libraries(vorbisenc ${OGG_LIBRARIES} vorbis)
-    target_link_libraries(vorbisfile ${OGG_LIBRARIES} vorbis)
+    target_link_libraries(vorbis ogg)
+    target_link_libraries(vorbisenc ogg vorbis)
+    target_link_libraries(vorbisfile ogg vorbis)
 
     install(FILES ${VORBIS_PUBLIC_HEADERS} DESTINATION ${CMAKE_INSTALL_FULL_INCLUDEDIR}/vorbis)
 
